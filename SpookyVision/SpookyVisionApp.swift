@@ -13,5 +13,6 @@ struct SpookyVisionApp: App {
         WindowGroup {
             ContentView()
         }
+        .windowStyle(.plain)
     }
 }

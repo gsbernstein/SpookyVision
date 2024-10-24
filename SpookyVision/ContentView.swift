@@ -6,21 +6,41 @@
 //
 
 import SwiftUI
-import RealityKit
-import RealityKitContent
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Model3D(named: "Scene", bundle: realityKitContentBundle)
-                .padding(.bottom, 50)
-
-            Text("Hello, world!")
+        HStack {
+            SideBar(direction: .left)
+            Spacer()
+            SideBar(direction: .right)
         }
         .padding()
     }
 }
 
-#Preview(windowStyle: .automatic) {
+#Preview(windowStyle: .plain) {
     ContentView()
+        .background(.clear)
+}
+
+enum Direction {
+    case left, right
+    
+    var imageName: String {
+        switch self {
+        case .left: return "spooky"
+        case .right: return "vision"
+        }
+    }
+}
+
+struct SideBar: View {
+    
+    let direction: Direction
+    
+    var body: some View {
+        Image(direction.imageName)
+            .resizable()
+            .scaledToFit()
+    }
 }
