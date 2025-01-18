@@ -26,10 +26,10 @@ struct ContentView: View {
 enum Direction {
     case left, right
     
-    var imageName: String {
+    var imageName: ImageResource {
         switch self {
-        case .left: return "spooky"
-        case .right: return "vision"
+        case .left: return .spooky
+        case .right: return .vision
         }
     }
 }
